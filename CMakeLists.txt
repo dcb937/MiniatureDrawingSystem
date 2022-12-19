@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
+# new added
+INCLUDE_DIRECTORIES(.)
+
 project(MiniatureDrawingSystem VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
@@ -17,6 +20,8 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        drawingboard.h
+        drawingboard.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
