@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuCurvePlotting">
+    <property name="title">
+     <string>CurvePlotting</string>
+    </property>
+    <addaction name="actionBezierCurve"/>
+    <addaction name="actionCircle"/>
+   </widget>
+   <widget class="QMenu" name="menuPolygoonClipping">
+    <property name="title">
+     <string>PolygoonClipping</string>
+    </property>
+    <addaction name="actionConvex"/>
+    <addaction name="actionConcave"/>
+   </widget>
+   <addaction name="menuCurvePlotting"/>
+   <addaction name="menuPolygoonClipping"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionConvex">
+   <property name="text">
+    <string>Convex</string>
+   </property>
+  </action>
+  <action name="actionConcave">
+   <property name="text">
+    <string>Concave</string>
+   </property>
+  </action>
+  <action name="actionBezierCurve">
+   <property name="text">
+    <string>BezierCurve</string>
+   </property>
+  </action>
+  <action name="actionCircle">
+   <property name="text">
+    <string>Circle</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
