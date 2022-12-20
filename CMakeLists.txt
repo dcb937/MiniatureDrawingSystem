@@ -22,6 +22,8 @@ set(PROJECT_SOURCES
         mainwindow.ui
         drawingboard.h
         drawingboard.cpp
+        mydialog.h
+        mydialog.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
