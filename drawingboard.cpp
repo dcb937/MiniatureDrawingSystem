@@ -22,7 +22,10 @@ void drawingBoard::bezierCurve()
     pointList.clear();
     qDebug() << "bezier begin";
 
-    myDialog dialog(this);
+    myDialog dialog(this,
+                    "Please input position of point in order:\nIf you don't want to continue to add, click cancel.",
+                    "Point_x: ",
+                    "Point_y: ");
 
     // Process when OK button is clicked
     while (dialog.exec() == QDialog::Accepted) {
@@ -41,15 +44,21 @@ void drawingBoard::bezierCurve()
 void drawingBoard::circle()
 {
     status = 0;
+    radius = 0;
     pointList.clear();
     qDebug() << "circle begin";
-    myDialog dialog(this);
+    myDialog dialog(this,
+                    "Please input position of the center of the circle and radius",
+                    "Point_x of center:",
+                    "Point_y of center:",
+                    "Radius:");
 
     // Process when OK button is clicked
-    while (dialog.exec() == QDialog::Accepted) {
+    if (dialog.exec() == QDialog::Accepted) {
         /*......*/
         qDebug() << "insert:" << dialog.point_x << dialog.point_y;
         QPoint point(dialog.point_x, dialog.point_y);
+        radius = dialog.radius;
         pointList << point;
     }
 
@@ -113,11 +122,50 @@ void drawingBoard::paintEvent(QPaintEvent *event)
         break;
     }
         case CIRCLE:
+    {
+        int off_x = pointList[0].x();
+        int off_y = pointList[0].y();
+        int r = radius;
+        int x = 0;
+        int y = r;
+
+        float d,d0;
+        d0=5.0/4.0-r;
+        d=d0;
+        while(x<y)
+        {
+            if(d>0)
+            {
+                d = d + 2 * (x - y) + 5;
+                x += 1;
+                y = y - 1;
+            }
+            else
+            {
+                d = d + 2 * x + 3;
+                x += 1;
+            }
+
+            painter->drawPoint(off_x + x, off_y + y);
+            painter->drawPoint(off_x - x, off_y + y);
+            painter->drawPoint(off_x + x, off_y - y);
+            painter->drawPoint(off_x - x, off_y - y);
+            painter->drawPoint(off_x + y, off_y + x);
+            painter->drawPoint(off_x + y, off_y - x);
+            painter->drawPoint(off_x - y, off_y + x);
+            painter->drawPoint(off_x - y, off_y - x);
+        }
+
             break;
+    }
         case CONVEX:
+    {
             break;
+    }
         case CONCAVE:
+    {
             break;
+    }
     }
 
     delete painter;

@@ -24,6 +24,7 @@ public:
 
 private:
     int status;
+    int radius;
     QPainterPath getBezierPainterPath();
 
 public slots:
