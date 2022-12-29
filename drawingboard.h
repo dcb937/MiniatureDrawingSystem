@@ -21,6 +21,7 @@ public:
     double precision=0.001;
     drawingBoard(QWidget* parent = 0);
     QList<QPoint> pointList;
+    QList<QPoint> pointList_cw;
 
 private:
     int status;
