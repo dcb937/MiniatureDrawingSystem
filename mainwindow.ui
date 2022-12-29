@@ -57,7 +57,7 @@
    </widget>
    <widget class="QMenu" name="menuPolygoonClipping">
     <property name="title">
-     <string>PolygoonClipping</string>
+     <string>PolygonClipping</string>
     </property>
     <addaction name="actionConvex"/>
     <addaction name="actionConcave"/>
