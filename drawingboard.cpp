@@ -117,7 +117,8 @@ void drawingBoard::convex()
     pointList.clear();
     pointList_cw.clear();
 
-//    qDebug() << "convex begin";
+    qDebug() << "convex begin";
+
 //    myDialog dialog(this,
 //                    "Please input position of point in subject polygon in order:\nIf you don't want to continue to add, click cancel.",
 //                    "Point_x: ",
@@ -457,6 +458,14 @@ void prework()
     vis2.clear();
     pos1.clear();
     pos2.clear();
+    for(int i = 0; i < poly1.size(); i++){
+        pos1.push_back(-1);
+        pos2.push_back(-1);
+    }
+    for(int i = 0; i < 20; i++){
+        vis1.push_back(false);
+        vis2.push_back(false);
+    }
 }
 
 void display(QPainter* painter)
@@ -515,6 +524,8 @@ void work(QPainter* painter) {
                 if (isPointInsidePoly(new1[nowpos], poly2) && !isPointInsidePoly(new1[(nowpos+1)%len1], poly2)) {//判断是否为出点
                     ch = 2;
                     nowpos = pos1[nowpos];
+                    if(nowpos == -1)
+                        qDebug() << "xxxxxxxxxxxxxxxxxxxx";
                     nowpos = (nowpos + 1) % len2;
                 } else {
                     nowpos = (nowpos + 1) % len1;
