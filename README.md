@@ -1,2 +1,2 @@
 # MiniatureDrawingSystem
- 2022 TJU Computer Graphics Term Project
+ 2022 TJU Computer Graphics Coursework
